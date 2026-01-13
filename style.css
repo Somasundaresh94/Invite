@@ -4,6 +4,7 @@
   box-sizing:border-box;
 }
 
+/* ================= BODY ================= */
 body{
   font-family:'Noto Serif Tamil',serif;
   background:#f0ab0c;
@@ -22,6 +23,7 @@ body{
   text-align:center;
   cursor:pointer;
 }
+
 #loader h1{
   font-family:'Cinzel';
   color:#7a1e1e;
@@ -65,15 +67,18 @@ body{
 .hero h2{
   font-family:'Cinzel';
   color:#7a1e1e;
+  margin-bottom:10px;
 }
 
 .hero h1{
   font-family:'Great Vibes';
   font-size:clamp(3rem,7vw,5rem);
+  line-height:1.2;
 }
 
 .date{
   letter-spacing:2px;
+  margin-top:10px;
 }
 
 /* ================= POEM ================= */
@@ -111,7 +116,7 @@ body{
 .gallery-row{
   display:flex;
   align-items:center;
-  justify-content:center;       /* CENTER FIX */
+  justify-content:center;
   gap:30px;
   margin-bottom:40px;
   max-width:900px;
@@ -152,6 +157,8 @@ body{
 }
 
 .countdown h2{
+  font-size:1.4rem;
+  line-height:1.3;
   max-width:90%;
   margin:0 auto 20px;
 }
@@ -161,7 +168,7 @@ body{
   justify-content:center;
   align-items:center;
   gap:14px;
-  flex-wrap:wrap;          /* MOBILE FIX */
+  flex-wrap:wrap;
 }
 
 #timer div{
@@ -206,11 +213,21 @@ body{
   transform:none;
 }
 
-/* ================= MOBILE ================= */
+/* ================= MOBILE FIXES ================= */
 @media(max-width:600px){
 
   .hero h1{
-    font-size:3.2rem;
+    font-size:2.4rem;      /* NAME SMALLER */
+    line-height:1.3;
+    padding:0 10px;
+  }
+
+  .hero h2{
+    font-size:1.1rem;
+  }
+
+  .date{
+    font-size:0.9rem;
   }
 
   .gallery-row{
@@ -222,8 +239,22 @@ body{
     margin:0 auto;
   }
 
-  .countdown h2{
-    font-size:1.2rem;
+  .countdown{
+    padding:40px 15px;
   }
 
+  .countdown h2{
+    font-size:1.05rem;     /* COMPACT */
+    margin-bottom:12px;
+  }
+
+  #timer{
+    gap:10px;
+  }
+
+  #timer div{
+    min-width:62px;
+    padding:10px 8px;
+    font-size:0.85rem;
+  }
 }
