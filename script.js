@@ -35,20 +35,17 @@ window.addEventListener("scroll",()=>{
 });
 
 /* ---------- COUNTDOWN ---------- */
-const target = new Date("2026-02-07T18:00:00").getTime();
+const targetDate = new Date("2026-02-07T18:00:00").getTime();
 
 setInterval(()=>{
   const now = new Date().getTime();
-  const diff = target-now;
+  const diff = targetDate - now;
+  if(diff < 0) return;
 
-  const d = Math.floor(diff/(1000*60*60*24));
-  const h = Math.floor((diff/(1000*60*60))%24);
-  const m = Math.floor((diff/(1000*60))%60);
-  const s = Math.floor((diff/1000)%60);
-
-  document.getElementById("timer").innerHTML =
-   `<div>${d}<br>Days</div>
-    <div>${h}<br>Hours</div>
-    <div>${m}<br>Min</div>
-    <div>${s}<br>Sec</div>`;
+  days.innerText = Math.floor(diff / (1000*60*60*24));
+  hours.innerText = Math.floor((diff / (1000*60*60)) % 24);
+  minutes.innerText = Math.floor((diff / (1000*60)) % 60);
+  seconds.innerText = Math.floor((diff / 1000) % 60);
 },1000);
+
+
