@@ -285,8 +285,8 @@ body{
 }
 
 .love-birds{
-  width:170px;          /* BIGGER SIZE */
-  max-width:55vw;       /* SAFE ON MOBILE */
+  width:270px;          /* BIGGER SIZE */
+  max-width:75vw;       /* SAFE ON MOBILE */
   height:auto;
   animation:floatBirds 3s ease-in-out infinite;
 }
@@ -301,9 +301,10 @@ body{
 /* Mobile fine-tune */
 @media(max-width:600px){
   .love-birds{
-    width:130px;
+    width:180px;
   }
 }
+
 
 
 
