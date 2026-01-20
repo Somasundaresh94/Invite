@@ -274,6 +274,36 @@ body{
     font-size:0.85rem;
   }
 }
+/* ================= LOVE BIRDS ================= */
+
+.birds-wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:14px;
+}
+
+.love-birds{
+  width:120px;
+  max-width:40vw;
+  height:auto;
+  animation:floatBirds 3s ease-in-out infinite;
+}
+
+/* Gentle royal float */
+@keyframes floatBirds{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+  100%{transform:translateY(0)}
+}
+
+/* Mobile */
+@media(max-width:600px){
+  .love-birds{
+    width:90px;
+  }
+}
+
 
 
 
