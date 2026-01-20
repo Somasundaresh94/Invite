@@ -1,51 +1,47 @@
-// Loader & Music
-const loader=document.getElementById("loader");
-const music=document.getElementById("bgMusic");
+/* ============================
+   COUNTDOWN TIMER
+============================ */
 
-loader.onclick=()=>{
-  loader.style.display="none";
-  music.play();
-};
+const targetDate = new Date("2026-02-07T18:00:00").getTime();
 
-// Hearts (non-overlapping)
-const heartContainer=document.getElementById("hearts");
-const usedPositions=[];
+const days = document.getElementById("days");
+const hours = document.getElementById("hours");
+const minutes = document.getElementById("minutes");
+const seconds = document.getElementById("seconds");
 
-for(let i=0;i<28;i++){
-  let pos;
-  do{
-    pos=Math.floor(Math.random()*90);
-  }while(usedPositions.some(p=>Math.abs(p-pos)<4));
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = targetDate - now;
 
-  usedPositions.push(pos);
+  if (diff <= 0) return;
 
-  const h=document.createElement("span");
-  h.innerHTML=Math.random()>0.5?"💜":"❤️";
-  h.style.left=pos+"vw";
-  h.style.fontSize=14+Math.random()*10+"px";
-  h.style.animationDelay=Math.random()*5+"s";
-  heartContainer.appendChild(h);
-}
+  days.innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+  hours.innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  minutes.innerText = Math.floor((diff / (1000 * 60)) % 60);
+  seconds.innerText = Math.floor((diff / 1000) % 60);
+}, 1000);
 
-// Reveal
-const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-  reveals.forEach(r=>{
-    if(r.getBoundingClientRect().top<window.innerHeight-100){
-      r.classList.add("show");
-    }
-  });
-});
 
-// Countdown
-const target=new Date("2026-02-07T18:00:00").getTime();
-setInterval(()=>{
-  const now=new Date().getTime();
-  const diff=target-now;
-  if(diff<0)return;
+/* ============================
+   FLOATING HEARTS ANIMATION
+============================ */
 
-  days.innerText=Math.floor(diff/(1000*60*60*24));
-  hours.innerText=Math.floor((diff/(1000*60*60))%24);
-  minutes.innerText=Math.floor((diff/(1000*60))%60);
-  seconds.innerText=Math.floor((diff/1000)%60);
-},1000);
+const heartsContainer = document.getElementById("hearts");
+const heartColors = ["#d6336c", "#7b2cbf"]; // red + violet
+
+setInterval(() => {
+  const heart = document.createElement("span");
+  heart.innerHTML = "❤";
+
+  heart.style.left = Math.random() * 95 + "vw";
+  heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
+  heart.style.fontSize = "16px";
+  heart.style.animationDuration = (5 + Math.random() * 3) + "s";
+
+  heartsContainer.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 8000);
+
+}, 500);
