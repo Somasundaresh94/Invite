@@ -17,7 +17,8 @@ function createHearts() {
 
   for (let i = 0; i < HEART_COUNT; i++) {
     const heart = document.createElement("span");
-    heart.innerHTML = "❤";
+    // heart.innerHTML = "❤";
+     heart.innerHTML="💜❤️";
 
     // Even horizontal spacing
     const leftPos = (i + 0.5) * (100 / HEART_COUNT);
@@ -67,3 +68,4 @@ setInterval(() => {
     <div>${s}<br>Seconds</div>
   `;
 }, 1000);
+
