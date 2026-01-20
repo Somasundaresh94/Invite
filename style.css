@@ -7,17 +7,22 @@
 /* ROOT COLORS */
 :root{
   --gold:#d4af37;
-  --gold-soft:#f7e7b4;
   --maroon:#7a1e1e;
   --violet:#8b2fc9;
   --red:#d43737;
-  --bg-light:#fff8ec;
+  --yellow:#ffe58a;
+  --sky:#cfefff;
   --text:#4a2c1a;
 }
 
 body{
   font-family:'Noto Serif Tamil',serif;
-  background:var(--bg-light);
+  background:linear-gradient(
+    135deg,
+    var(--yellow) 0%,
+    #fff6cc 30%,
+    var(--sky) 100%
+  );
   color:var(--text);
   overflow-x:hidden;
 }
@@ -27,7 +32,7 @@ body{
 #loader{
   position:fixed;
   inset:0;
-  background:radial-gradient(circle at top,#fff3d1,#f4d27a);
+  background:radial-gradient(circle at top,#fffbe6,#ffe58a);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -61,7 +66,7 @@ body{
   position:fixed;
   top:20px;
   right:20px;
-  background:linear-gradient(45deg,var(--gold),var(--gold-soft));
+  background:linear-gradient(45deg,var(--gold),#fff1b8);
   border:none;
   border-radius:50%;
   padding:12px;
@@ -74,8 +79,8 @@ body{
 #hearts span{
   position:fixed;
   font-size:18px;
-  animation:floatUp 12s linear infinite;
-  opacity:0.7;
+  animation:floatUp 7s linear infinite;
+  opacity:0.75;
   pointer-events:none;
 }
 
@@ -84,12 +89,12 @@ body{
 
 @keyframes floatUp{
   from{
-    transform:translateY(110vh) scale(0.8);
+    transform:translateY(110vh) scale(0.9);
     opacity:0;
   }
-  10%{opacity:0.7}
+  10%{opacity:0.8}
   to{
-    transform:translateY(-10vh) scale(1.2);
+    transform:translateY(-10vh) scale(1.3);
     opacity:0;
   }
 }
@@ -210,7 +215,7 @@ body{
 }
 
 #timer div{
-  background:#fff;
+  background:#ffffffcc;
   padding:14px 18px;
   border-radius:14px;
   border:1px solid var(--gold);
@@ -233,7 +238,7 @@ body{
 }
 
 .rsvp a{
-  background:linear-gradient(45deg,var(--gold),var(--gold-soft));
+  background:linear-gradient(45deg,var(--gold),#fff1b8);
   padding:16px 36px;
   border-radius:30px;
   color:var(--text);
@@ -254,10 +259,9 @@ body{
   transform:none;
 }
 
-/* ---------------- MOBILE FIXES ---------------- */
+/* ---------------- MOBILE FIX ---------------- */
 
 @media(max-width:600px){
-
   .hero h1{
     font-size:2.3rem;
     line-height:1.25;
