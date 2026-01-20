@@ -7,15 +7,22 @@
 /* ================= BODY ================= */
 body{
   font-family:'Noto Serif Tamil',serif;
-  background:#f0ab0c;
+  background:linear-gradient(
+    135deg,
+    #fff7d6 0%,
+    #fdf0b2 35%,
+    #e8f6ff 70%,
+    #d6efff 100%
+  );
   color:#4a2c1a;
+  overflow-x:hidden;
 }
 
 /* ================= LOADER ================= */
 #loader{
   position:fixed;
   inset:0;
-  background:radial-gradient(circle,#e6c27a,#ffae01);
+  background:radial-gradient(circle at top,#fff1b8,#f3c13a);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -34,19 +41,20 @@ body{
   position:fixed;
   top:20px;
   right:20px;
-  background:#d4af37;
+  background:linear-gradient(145deg,#ffd36a,#f3b400);
   border:none;
   border-radius:50%;
   padding:12px;
   z-index:50;
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
 }
 
 /* ================= FLOATING HEARTS ================= */
 #hearts span{
   position:fixed;
-  color:#d43737;
   font-size:18px;
-  animation:float 10s linear infinite;
+  animation:float 8s linear infinite;
+  pointer-events:none;
 }
 
 @keyframes float{
@@ -138,6 +146,7 @@ body{
   object-fit:cover;
   border-radius:20px;
   border:4px solid #d4af37;
+  background:#fff;
 }
 
 @keyframes slideLeft{
@@ -168,15 +177,16 @@ body{
   justify-content:center;
   align-items:center;
   gap:14px;
-  flex-wrap:wrap;
+  flex-wrap:nowrap;
 }
 
 #timer div{
-  background:#fff3cd;
+  background:linear-gradient(180deg,#fff9e6,#ffe29a);
   padding:14px 18px;
-  border-radius:14px;
+  border-radius:16px;
   border:1px solid #d4af37;
   min-width:70px;
+  box-shadow:0 6px 14px rgba(212,175,55,0.3);
 }
 
 /* ================= MAP ================= */
@@ -193,12 +203,13 @@ body{
 }
 
 .rsvp a{
-  background:linear-gradient(45deg,#d4af37,#f5e6b3);
+  background:linear-gradient(45deg,#ffd36a,#f3b400);
   padding:16px 36px;
   border-radius:30px;
   color:#4a2c1a;
   text-decoration:none;
   display:inline-block;
+  box-shadow:0 6px 16px rgba(0,0,0,0.15);
 }
 
 /* ================= REVEAL ================= */
@@ -217,7 +228,7 @@ body{
 @media(max-width:600px){
 
   .hero h1{
-    font-size:2.4rem;      /* NAME SMALLER */
+    font-size:2.4rem;
     line-height:1.3;
     padding:0 10px;
   }
@@ -244,7 +255,7 @@ body{
   }
 
   .countdown h2{
-    font-size:1.05rem;     /* COMPACT */
+    font-size:1.05rem;
     margin-bottom:12px;
   }
 
