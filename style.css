@@ -8,7 +8,8 @@
 /* ================= BODY ================= */
 body{
   font-family:'Noto Serif Tamil',serif;
-  background:#f0ab0c;
+  /* background:#f0ab0c; */
+  background: linear-gradient(90deg, #FF0F7B, #F89B29);
   color:#4a2c1a;
 }
 
@@ -259,4 +260,5 @@ body{
     font-size:0.85rem;
   }
 }
+
 
