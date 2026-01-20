@@ -1,47 +1,42 @@
-/* ============================
-   COUNTDOWN TIMER
-============================ */
+// Loader + Music
+const loader=document.getElementById("loader");
+const music=document.getElementById("bgMusic");
+loader.onclick=()=>{
+  loader.style.display="none";
+  music.play();
+};
 
-const targetDate = new Date("2026-02-07T18:00:00").getTime();
+// Floating Hearts
+for(let i=0;i<30;i++){
+  const h=document.createElement("span");
+  h.innerHTML="💜❤️";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDelay=Math.random()*5+"s";
+  document.getElementById("hearts").appendChild(h);
+}
 
-const days = document.getElementById("days");
-const hours = document.getElementById("hours");
-const minutes = document.getElementById("minutes");
-const seconds = document.getElementById("seconds");
+// Reveal on scroll
+const reveals=document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+  reveals.forEach(r=>{
+    if(r.getBoundingClientRect().top<window.innerHeight-80){
+      r.classList.add("show");
+    }
+  });
+});
 
-setInterval(() => {
-  const now = new Date().getTime();
-  const diff = targetDate - now;
-
-  if (diff <= 0) return;
-
-  days.innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-  hours.innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  minutes.innerText = Math.floor((diff / (1000 * 60)) % 60);
-  seconds.innerText = Math.floor((diff / 1000) % 60);
-}, 1000);
-
-
-/* ============================
-   FLOATING HEARTS ANIMATION
-============================ */
-
-const heartsContainer = document.getElementById("hearts");
-const heartColors = ["#d6336c", "#7b2cbf"]; // red + violet
-
-setInterval(() => {
-  const heart = document.createElement("span");
-  heart.innerHTML = "❤";
-
-  heart.style.left = Math.random() * 95 + "vw";
-  heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
-  heart.style.fontSize = "16px";
-  heart.style.animationDuration = (5 + Math.random() * 3) + "s";
-
-  heartsContainer.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 8000);
-
-}, 500);
+// Countdown
+const target=new Date("2026-02-07T18:00:00").getTime();
+setInterval(()=>{
+  const now=new Date().getTime();
+  const diff=target-now;
+  const d=Math.floor(diff/(1000*60*60*24));
+  const h=Math.floor(diff/(1000*60*60)%24);
+  const m=Math.floor(diff/(1000*60)%60);
+  const s=Math.floor(diff/1000%60);
+  document.getElementById("timer").innerHTML=
+  `<div>${d}<br>Days</div>
+   <div>${h}<br>Hours</div>
+   <div>${m}<br>Minutes</div>
+   <div>${s}<br>Seconds</div>`;
+},1000);
