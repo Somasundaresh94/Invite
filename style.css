@@ -1,108 +1,121 @@
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body{
   font-family:'Noto Serif Tamil',serif;
-  background:linear-gradient(180deg,#fff7cc,#e8f4ff);
-  color:#5a2a1a;
+  background:linear-gradient(180deg,#fff6d5,#eaf7ff);
+  color:#6b2b2b;
+  overflow-x:hidden;
 }
 
-/* LOADER */
-#loader{
-  position:fixed;
-  inset:0;
-  background:radial-gradient(circle,#ffe9a6,#ffd45c);
+/* Center wrapper */
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+/* HERO */
+.hero h1{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(2.5rem,6vw,4.5rem);
+  color:#7a1e1e;
+}
+
+.subtitle{
+  margin-top:10px;
+  font-family:'Cinzel';
+  letter-spacing:2px;
+}
+
+/* POEM */
+.poem p{
+  line-height:2;
+  font-size:1.05rem;
+}
+
+/* COUNTDOWN */
+.countdown-row{
   display:flex;
-  align-items:center;
   justify-content:center;
-  z-index:999;
-  cursor:pointer;
+  align-items:center;
+  gap:20px;
+  flex-wrap:nowrap;
 }
-#loader > div{text-align:center}
 
-/* MUSIC */
-#musicBtn{
-  position:fixed;
-  top:20px;
-  right:20px;
-  background:#d4af37;
-  border:none;
-  border-radius:50%;
-  padding:12px;
+.countdown-row h2{
+  font-family:'Cinzel';
+  font-size:1rem;
+  white-space:nowrap;
+}
+
+#timer{
+  display:flex;
+  gap:12px;
+}
+
+#timer div{
+  background:linear-gradient(145deg,#fff3c4,#f5d68e);
+  border:1px solid #d4af37;
+  border-radius:14px;
+  min-width:65px;
+  padding:10px;
+  box-shadow:0 6px 10px rgba(212,175,55,.3);
+}
+
+#timer span{
+  font-weight:bold;
+  font-size:1.1rem;
+}
+
+#timer small{
+  font-size:0.65rem;
+  letter-spacing:1px;
+}
+
+/* FOOTER */
+.footer h3{
+  font-family:'Cinzel';
+  margin-top:8px;
 }
 
 /* HEARTS */
 #hearts span{
   position:fixed;
-  animation:floatUp 6s linear infinite;
-  pointer-events:none;
+  bottom:-20px;
+  font-size:16px;
+  animation:floatUp linear infinite;
+  z-index:1;
+  opacity:.8;
 }
+
 @keyframes floatUp{
-  from{transform:translateY(110vh)}
-  to{transform:translateY(-10vh)}
+  from{transform:translateY(0)}
+  to{transform:translateY(-120vh)}
 }
 
-/* HERO */
-.hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:20px;
-}
-.hero h2{font-family:'Cinzel';color:#7a1e1e}
-.hero h1{
-  font-family:'Great Vibes';
-  font-size:clamp(2.5rem,6vw,5rem);
-}
-.hero h1 span{
-  background:linear-gradient(90deg,#d4af37,#fff,#d4af37);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.date{letter-spacing:2px}
-
-/* POEM */
-.poem{
-  padding:60px 20px;
-  text-align:center;
-  line-height:2;
-}
-
-/* COUNTDOWN */
-.countdown{padding:60px 15px}
-.countdown-row{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:14px;
-  flex-wrap:nowrap;
-}
-.countdown-row h2{
-  font-family:'Cinzel';
-  white-space:nowrap;
-  font-size:1.1rem;
-}
-#timer{display:flex;gap:10px}
-.time-box{
-  background:linear-gradient(145deg,#fff6d8,#f5d48c);
-  border:1px solid #d4af37;
-  border-radius:16px;
-  padding:10px 12px;
-  min-width:60px;
-  text-align:center;
-}
-.time-box span{font-size:1.2rem;font-weight:bold}
-.time-box small{font-size:0.6rem}
-
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(40px);transition:1s}
-.reveal.show{opacity:1;transform:none}
-
-/* MOBILE */
+/* MOBILE FIX */
 @media(max-width:600px){
-  .hero h1{font-size:2.1rem}
-  .countdown-row h2{font-size:0.85rem}
-  .time-box{min-width:48px;padding:8px}
+  .countdown-row{
+    gap:10px;
+  }
+
+  .countdown-row h2{
+    font-size:0.8rem;
+  }
+
+  #timer div{
+    min-width:50px;
+    padding:8px;
+  }
+
+  #timer span{
+    font-size:0.9rem;
+  }
 }
