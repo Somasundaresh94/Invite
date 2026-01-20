@@ -1,3 +1,4 @@
+
 *{
   margin:0;
   padding:0;
@@ -7,24 +8,15 @@
 /* ================= BODY ================= */
 body{
   font-family:'Noto Serif Tamil',serif;
-  background:
-    radial-gradient(circle at top,
-      #FFF6E0 0%,
-      #F5E6B3 40%,
-      #EAD8A6 75%,
-      #FFF6E0 100%);
-  color:#5b2b1a;
-  overflow-x:hidden;
+  background:#f0ab0c;
+  color:#4a2c1a;
 }
 
 /* ================= LOADER ================= */
 #loader{
   position:fixed;
   inset:0;
-  background:
-    radial-gradient(circle,
-      #F5E6B3 0%,
-      #D4AF37 70%);
+  background:radial-gradient(circle,#e6c27a,#ffae01);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -35,8 +27,7 @@ body{
 
 #loader h1{
   font-family:'Cinzel';
-  color:#7A1E1E;
-  letter-spacing:1px;
+  color:#7a1e1e;
 }
 
 /* ================= MUSIC ================= */
@@ -44,26 +35,24 @@ body{
   position:fixed;
   top:20px;
   right:20px;
-  background:
-    linear-gradient(145deg,#F5E6B3,#D4AF37);
+  background:#d4af37;
   border:none;
   border-radius:50%;
   padding:12px;
   z-index:50;
-  box-shadow:0 6px 18px rgba(0,0,0,0.25);
 }
 
 /* ================= FLOATING HEARTS ================= */
 #hearts span{
   position:fixed;
+  color:#d43737;
   font-size:18px;
-  animation:float 7s linear infinite;
-  pointer-events:none;
+  animation:float 10s linear infinite;
 }
 
 @keyframes float{
-  from{transform:translateY(110vh)}
-  to{transform:translateY(-15vh)}
+  from{transform:translateY(100vh)}
+  to{transform:translateY(-10vh)}
 }
 
 /* ================= HERO ================= */
@@ -78,31 +67,27 @@ body{
 
 .hero h2{
   font-family:'Cinzel';
-  color:#9B2C2C;
-  margin-bottom:12px;
-  letter-spacing:2px;
+  color:#7a1e1e;
+  margin-bottom:10px;
 }
 
 .hero h1{
   font-family:'Great Vibes';
   font-size:clamp(3rem,7vw,5rem);
   line-height:1.2;
-  color:#7A1E1E;
 }
 
 .date{
-  letter-spacing:3px;
-  margin-top:12px;
-  color:#7A1E1E;
+  letter-spacing:2px;
+  margin-top:10px;
 }
 
 /* ================= POEM ================= */
 .poem{
-  padding:70px 20px;
+  padding:60px 20px;
   text-align:center;
-  font-size:1.15rem;
-  line-height:2.1;
-  color:#5b2b1a;
+  font-size:1.1rem;
+  line-height:2;
 }
 
 /* ================= DETAILS ================= */
@@ -110,7 +95,7 @@ body{
   display:flex;
   justify-content:center;
   gap:40px;
-  padding:60px 20px;
+  padding:50px 20px;
   text-align:center;
   flex-wrap:wrap;
 }
@@ -121,14 +106,12 @@ body{
 
 /* ================= GALLERY ================= */
 .gallery{
-  padding:80px 20px;
+  padding:70px 20px;
 }
 
 .gallery h2{
   text-align:center;
-  margin-bottom:50px;
-  color:#7A1E1E;
-  font-family:'Cinzel';
+  margin-bottom:40px;
 }
 
 .gallery-row{
@@ -136,6 +119,144 @@ body{
   align-items:center;
   justify-content:center;
   gap:30px;
-  margin-bottom:45px;
+  margin-bottom:40px;
   max-width:900px;
-  margin-left:
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.gallery-row.left{
+  animation:slideLeft 1s ease;
+}
+
+.gallery-row.right{
+  animation:slideRight 1s ease;
+}
+
+.gallery img{
+  width:180px;
+  height:220px;
+  object-fit:cover;
+  border-radius:20px;
+  border:4px solid #d4af37;
+}
+
+@keyframes slideLeft{
+  from{transform:translateX(-80px);opacity:0}
+  to{transform:none;opacity:1}
+}
+
+@keyframes slideRight{
+  from{transform:translateX(80px);opacity:0}
+  to{transform:none;opacity:1}
+}
+
+/* ================= COUNTDOWN ================= */
+.countdown{
+  text-align:center;
+  padding:60px 20px;
+}
+
+.countdown h2{
+  font-size:1.4rem;
+  line-height:1.3;
+  max-width:90%;
+  margin:0 auto 20px;
+}
+
+#timer{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+#timer div{
+  background:#fff3cd;
+  padding:14px 18px;
+  border-radius:14px;
+  border:1px solid #d4af37;
+  min-width:70px;
+}
+
+/* ================= MAP ================= */
+.map iframe{
+  width:100%;
+  height:300px;
+  border:none;
+}
+
+/* ================= RSVP ================= */
+.rsvp{
+  text-align:center;
+  padding:50px 20px;
+}
+
+.rsvp a{
+  background:linear-gradient(45deg,#d4af37,#f5e6b3);
+  padding:16px 36px;
+  border-radius:30px;
+  color:#4a2c1a;
+  text-decoration:none;
+  display:inline-block;
+}
+
+/* ================= REVEAL ================= */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+/* ================= MOBILE FIXES ================= */
+@media(max-width:600px){
+
+  .hero h1{
+    font-size:2.4rem;      /* NAME SMALLER */
+    line-height:1.3;
+    padding:0 10px;
+  }
+
+  .hero h2{
+    font-size:1.1rem;
+  }
+
+  .date{
+    font-size:0.9rem;
+  }
+
+  .gallery-row{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .gallery-row img{
+    margin:0 auto;
+  }
+
+  .countdown{
+    padding:40px 15px;
+  }
+
+  .countdown h2{
+    font-size:1.05rem;     /* COMPACT */
+    margin-bottom:12px;
+  }
+
+  #timer{
+    gap:10px;
+  }
+
+  #timer div{
+    min-width:62px;
+    padding:10px 8px;
+    font-size:0.85rem;
+  }
+}
+
