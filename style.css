@@ -324,9 +324,10 @@ body{
 /* 📱 MOBILE VIEW */
 @media (max-width:768px){
   .bottom-symbol{
-    max-width:65px;   /* SMALLER ON MOBILE */
+    max-width:250px;   /* SMALLER ON MOBILE */
   }
 }
+
 
 
 
