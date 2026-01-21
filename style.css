@@ -258,7 +258,11 @@ body{
   .hero h2{
     font-size:1.1rem;
   }
-
+  
+ .poem{
+    padding-top:75px;
+    padding-bottom:20px;
+   
   .date{
     font-size:0.85rem;
   }
@@ -280,6 +284,7 @@ body{
     font-size:0.85rem;
   }
 }
+
 
 
 
