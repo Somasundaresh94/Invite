@@ -247,7 +247,7 @@ body{
 @media(max-width:600px){
 
   .hero{
-    padding-top:55px;
+    padding-top:75px;
     padding-bottom:40px;
   }
 
@@ -268,7 +268,10 @@ body{
   }
 
   .bottom-symbol{
-    max-width:200px;
+     width:180px;
+    max-width:250px;
+    padding-top:75px;
+    padding-bottom:10px;
   }
 
   #timer div{
@@ -277,5 +280,6 @@ body{
     font-size:0.85rem;
   }
 }
+
 
 
