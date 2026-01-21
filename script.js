@@ -7,26 +7,28 @@ loader.onclick = () => {
   music.play().catch(() => {});
 };
 
-// ================= FLOATING HEARTS (PAIRED, EVEN, NO OVERLAP) =================
+// ================= FLOATING HEARTS (PAIRED, RANDOM, NO OVERLAP) =================
 const heartsContainer = document.getElementById("hearts");
-const HEART_COUNT = 20;   // balanced & clean
+const HEART_COUNT = 18; // premium density
 
 function createHearts() {
   heartsContainer.innerHTML = "";
 
-  const spacing = 100 / HEART_COUNT;
+  const columnWidth = 100 / HEART_COUNT;
 
   for (let i = 0; i < HEART_COUNT; i++) {
     const heart = document.createElement("span");
 
-    // Paired hearts (DO NOT SPLIT)
+    // 💜❤️ stays together
     heart.innerHTML = "💜❤️";
 
-    // Equal horizontal spacing
-    heart.style.left = (i * spacing + spacing / 2) + "vw";
+    // Random X but inside its own column (NO OVERLAP)
+    const min = i * columnWidth;
+    const max = min + columnWidth;
+    heart.style.left = (min + Math.random() * (max - min)) + "vw";
 
-    // Smooth vertical speed (no crossing)
-    const duration = 7 + (i % 3);
+    // Calm premium speed
+    const duration = 9 + Math.random() * 4;
     heart.style.animation = `floatUp ${duration}s linear infinite`;
 
     heartsContainer.appendChild(heart);
