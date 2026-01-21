@@ -281,7 +281,8 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  margin-bottom:18px;
+  margin-top:-25px;   /* MOVE UP */
+  margin-bottom:8px;  /* LESS GAP BELOW */
 }
 
 .love-birds{
@@ -303,6 +304,11 @@ body{
   .love-birds{
     width:180px;
   }
+}
+.bottom-symbol{
+  display:block;
+  margin-top:18px;    /* MOVE DOWN */
+  margin-bottom:-10px; /* REDUCE BOTTOM EMPTY SPACE */
 }
 
 
