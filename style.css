@@ -25,6 +25,11 @@ body{
   cursor:pointer;
 }
 
+#loader h1{
+  font-family:'Cinzel';
+  color:#7a1e1e;
+}
+
 /* ================= MUSIC ================= */
 #musicBtn{
   position:fixed;
@@ -37,6 +42,33 @@ body{
   z-index:50;
 }
 
+/* ================= FLOATING HEARTS ================= */
+#hearts{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:2;
+}
+
+#hearts span{
+  position:absolute;
+  bottom:-10vh;
+  font-size:18px;
+  opacity:0.85;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
 /* ================= HERO ================= */
 .hero{
   min-height:100vh;
@@ -46,7 +78,7 @@ body{
   justify-content:center;
   text-align:center;
   padding:40px 20px;
-  gap:16px; /* 🔑 equal spacing */
+  gap:16px;
 }
 
 /* ================= LOVE BIRDS ================= */
@@ -58,6 +90,7 @@ body{
 .love-birds{
   width:240px;
   max-width:75vw;
+  height:auto;
   animation:floatBirds 3s ease-in-out infinite;
 }
 
@@ -93,6 +126,7 @@ body{
 .bottom-symbol{
   width:220px;
   max-width:70vw;
+  height:auto;
 }
 
 /* ================= POEM ================= */
@@ -113,9 +147,18 @@ body{
   text-align:center;
 }
 
+.details div{
+  min-width:200px;
+}
+
 /* ================= GALLERY ================= */
 .gallery{
   padding:70px 20px;
+}
+
+.gallery h2{
+  text-align:center;
+  margin-bottom:40px;
 }
 
 .gallery-row{
@@ -125,7 +168,16 @@ body{
   gap:30px;
   margin-bottom:40px;
   max-width:900px;
-  margin-inline:auto;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.gallery-row.left{
+  flex-direction:row;
+}
+
+.gallery-row.right{
+  flex-direction:row-reverse;
 }
 
 .gallery img{
@@ -142,11 +194,24 @@ body{
   padding:60px 20px;
 }
 
+.countdown h2{
+  font-size:1.4rem;
+  margin-bottom:20px;
+}
+
 #timer{
   display:flex;
   justify-content:center;
   gap:14px;
   flex-wrap:wrap;
+}
+
+#timer div{
+  background:#fff3cd;
+  padding:14px 18px;
+  border-radius:14px;
+  border:1px solid #d4af37;
+  min-width:70px;
 }
 
 /* ================= MAP ================= */
@@ -166,8 +231,8 @@ body{
   background:linear-gradient(45deg,#d4af37,#f5e6b3);
   padding:16px 36px;
   border-radius:30px;
-  text-decoration:none;
   color:#4a2c1a;
+  text-decoration:none;
 }
 
 /* ================= REVEAL ================= */
@@ -183,6 +248,15 @@ body{
 }
 
 /* ================= MOBILE ================= */
+@media(max-width:768px){
+
+  .gallery-row.left,
+  .gallery-row.right{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+
 @media(max-width:600px){
 
   .love-birds{
@@ -200,5 +274,11 @@ body{
   .poem{
     padding:30px 16px;
     font-size:1rem;
+  }
+
+  #timer div{
+    min-width:62px;
+    padding:10px 8px;
+    font-size:0.85rem;
   }
 }
