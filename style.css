@@ -1,4 +1,3 @@
-
 *{
   margin:0;
   padding:0;
@@ -8,11 +7,9 @@
 /* ================= BODY ================= */
 body{
   font-family:'Noto Serif Tamil',serif;
-  /* background:#f0ab0c; */
-  /* background: linear-gradient(90deg, #FF0F7B, #F89B29); dark*/
   background: linear-gradient(90deg, #FF66A3, #FFB347);
-
   color:#4a2c1a;
+  overflow-x:hidden;
 }
 
 /* ================= LOADER ================= */
@@ -46,13 +43,13 @@ body{
 }
 
 /* ================= FLOATING HEARTS ================= */
-/* ================= EVEN FLOATING HEARTS ================= */
 #hearts span{
   position: fixed;
   bottom: -10vh;
   font-size: 18px;
   opacity: 0.85;
   pointer-events: none;
+  animation: floatUp linear infinite;
 }
 
 @keyframes floatUp {
@@ -60,15 +57,11 @@ body{
     transform: translateY(0) scale(1);
     opacity: 0.6;
   }
-  70% {
-    opacity: 1;
-  }
   100% {
     transform: translateY(-110vh) scale(1.2);
     opacity: 0;
   }
 }
-
 
 /* ================= HERO ================= */
 .hero{
@@ -76,25 +69,68 @@ body{
   text-align:center;
   display:flex;
   flex-direction:column;
-  justify-content:center;
-  padding:20px;
+  align-items:center;
+  justify-content:flex-start;
+  padding-top:70px;
+  padding-bottom:50px;
 }
 
+/* ================= LOVE BIRDS ================= */
+.birds-wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:14px;
+}
+
+.love-birds{
+  width:260px;
+  max-width:75vw;
+  height:auto;
+  animation:floatBirds 3s ease-in-out infinite;
+}
+
+@keyframes floatBirds{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+  100%{transform:translateY(0)}
+}
+
+/* ================= TITLES ================= */
 .hero h2{
   font-family:'Cinzel';
   color:#7a1e1e;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 .hero h1{
   font-family:'Great Vibes';
   font-size:clamp(3rem,7vw,5rem);
-  line-height:1.2;
+  line-height:1.15;
+  margin-bottom:6px;
 }
 
+/* ================= DATE ================= */
 .date{
   letter-spacing:2px;
-  margin-top:10px;
+  font-size:0.95rem;
+  margin-top:6px;
+  margin-bottom:10px;
+}
+
+/* ================= SYMBOL ================= */
+.symbol-wrapper{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:12px;
+}
+
+.bottom-symbol{
+  max-width:95px;
+  width:100%;
+  height:auto;
 }
 
 /* ================= POEM ================= */
@@ -140,30 +176,12 @@ body{
   margin-right:auto;
 }
 
-.gallery-row.left{
-  animation:slideLeft 1s ease;
-}
-
-.gallery-row.right{
-  animation:slideRight 1s ease;
-}
-
 .gallery img{
   width:180px;
   height:220px;
   object-fit:cover;
   border-radius:20px;
   border:4px solid #d4af37;
-}
-
-@keyframes slideLeft{
-  from{transform:translateX(-80px);opacity:0}
-  to{transform:none;opacity:1}
-}
-
-@keyframes slideRight{
-  from{transform:translateX(80px);opacity:0}
-  to{transform:none;opacity:1}
 }
 
 /* ================= COUNTDOWN ================= */
@@ -174,15 +192,12 @@ body{
 
 .countdown h2{
   font-size:1.4rem;
-  line-height:1.3;
-  max-width:90%;
-  margin:0 auto 20px;
+  margin-bottom:20px;
 }
 
 #timer{
   display:flex;
   justify-content:center;
-  align-items:center;
   gap:14px;
   flex-wrap:wrap;
 }
@@ -214,7 +229,6 @@ body{
   border-radius:30px;
   color:#4a2c1a;
   text-decoration:none;
-  display:inline-block;
 }
 
 /* ================= REVEAL ================= */
@@ -232,10 +246,13 @@ body{
 /* ================= MOBILE FIXES ================= */
 @media(max-width:600px){
 
+  .hero{
+    padding-top:55px;
+    padding-bottom:40px;
+  }
+
   .hero h1{
-    font-size:2.4rem;      /* NAME SMALLER */
-    line-height:1.3;
-    padding:0 10px;
+    font-size:2.4rem;
   }
 
   .hero h2{
@@ -243,29 +260,15 @@ body{
   }
 
   .date{
-    font-size:0.9rem;
+    font-size:0.85rem;
   }
 
-  .gallery-row{
-    flex-direction:column;
-    text-align:center;
+  .love-birds{
+    width:180px;
   }
 
-  .gallery-row img{
-    margin:0 auto;
-  }
-
-  .countdown{
-    padding:40px 15px;
-  }
-
-  .countdown h2{
-    font-size:1.05rem;     /* COMPACT */
-    margin-bottom:12px;
-  }
-
-  #timer{
-    gap:10px;
+  .bottom-symbol{
+    max-width:70px;
   }
 
   #timer div{
@@ -274,66 +277,3 @@ body{
     font-size:0.85rem;
   }
 }
-
-/* ================= LOVE BIRDS ================= */
-
-.birds-wrapper{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin-top:-25px;   /* MOVE UP */
-  margin-bottom:8px;  /* LESS GAP BELOW */
-}
-
-.love-birds{
-  width:270px;          /* BIGGER SIZE */
-  max-width:75vw;       /* SAFE ON MOBILE */
-  height:auto;
-  animation:floatBirds 3s ease-in-out infinite;
-}
-
-/* Gentle royal float */
-@keyframes floatBirds{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-8px)}
-  100%{transform:translateY(0)}
-}
-
-/* Mobile fine-tune */
-@media(max-width:600px){
-  .love-birds{
-    width:180px;
-  }
-}
-.symbol-wrapper{
-  width:100%;
-  display:flex;
-  justify-content:center;   /* CENTER HORIZONTALLY */
-  align-items:center;
-  margin-top:16px;
-  margin-bottom:-8px;
-}
-
-.bottom-symbol{
-  max-width:90px;     /* DESKTOP SIZE */
-  width:100%;
-  height:auto;
-  display:block;
-}
-
-/* 📱 MOBILE VIEW */
-@media (max-width:768px){
-  .bottom-symbol{
-    max-width:250px;   /* SMALLER ON MOBILE */
-  }
-}
-
-
-
-
-
-
-
-
-
-
