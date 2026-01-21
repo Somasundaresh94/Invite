@@ -305,11 +305,30 @@ body{
     width:180px;
   }
 }
-.bottom-symbol{
-  display:block;
-  margin-top:18px;    /* MOVE DOWN */
-  margin-bottom:-10px; /* REDUCE BOTTOM EMPTY SPACE */
+.symbol-wrapper{
+  width:100%;
+  display:flex;
+  justify-content:center;   /* CENTER HORIZONTALLY */
+  align-items:center;
+  margin-top:16px;
+  margin-bottom:-8px;
 }
+
+.bottom-symbol{
+  max-width:90px;     /* DESKTOP SIZE */
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* 📱 MOBILE VIEW */
+@media (max-width:768px){
+  .bottom-symbol{
+    max-width:65px;   /* SMALLER ON MOBILE */
+  }
+}
+
+
 
 
 
