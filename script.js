@@ -7,38 +7,33 @@ loader.onclick = () => {
   music.play().catch(() => {});
 };
 
-// ================= FLOATING HEARTS (EVEN & CLEAN) =================
+// ================= FLOATING HEARTS (PAIRED, EVEN, NO OVERLAP) =================
 const heartsContainer = document.getElementById("hearts");
-const heartEmojis = ["💜", "❤️"];
-const heartColors = ["#f5c542", "#7b2cbf"];
-const HEART_COUNT = 24;
+const HEART_COUNT = 20;   // balanced & clean
 
 function createHearts() {
   heartsContainer.innerHTML = "";
 
+  const spacing = 100 / HEART_COUNT;
+
   for (let i = 0; i < HEART_COUNT; i++) {
     const heart = document.createElement("span");
 
-    heart.innerHTML = heartEmojis[i % heartEmojis.length];
-    heart.style.color = heartColors[i % heartColors.length];
+    // Paired hearts (DO NOT SPLIT)
+    heart.innerHTML = "💜❤️";
 
-    // Even horizontal spacing
-    const leftPos = (i + 0.5) * (100 / HEART_COUNT);
-    heart.style.left = leftPos + "vw";
+    // Equal horizontal spacing
+    heart.style.left = (i * spacing + spacing / 2) + "vw";
 
-    // Random animation delay + duration
-    const duration = 6 + Math.random() * 4;
-    const delay = Math.random() * 5;
-
-    heart.style.animation = `floatUp ${duration}s linear ${delay}s infinite`;
+    // Smooth vertical speed (no crossing)
+    const duration = 7 + (i % 3);
+    heart.style.animation = `floatUp ${duration}s linear infinite`;
 
     heartsContainer.appendChild(heart);
   }
 }
 
-// initial + refresh every 15s
 createHearts();
-setInterval(createHearts, 15000);
 
 // ================= REVEAL ON SCROLL =================
 const reveals = document.querySelectorAll(".reveal");
