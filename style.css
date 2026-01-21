@@ -172,12 +172,10 @@ body{
   margin-right:auto;
 }
 
-.gallery-row.left{
-  flex-direction:row;
-}
-
+/* DESKTOP – SAME LAYOUT FOR BOTH */
+.gallery-row.left,
 .gallery-row.right{
-  flex-direction:row-reverse;
+  flex-direction:row;
 }
 
 .gallery img{
@@ -187,6 +185,16 @@ body{
   border-radius:20px;
   border:4px solid #d4af37;
 }
+
+/* MOBILE – STACK */
+@media(max-width:768px){
+  .gallery-row.left,
+  .gallery-row.right{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+
 
 /* ================= COUNTDOWN ================= */
 .countdown{
@@ -282,3 +290,4 @@ body{
     font-size:0.85rem;
   }
 }
+
