@@ -268,7 +268,7 @@ body{
   }
 
   .bottom-symbol{
-    max-width:70px;
+    max-width:200px;
   }
 
   #timer div{
@@ -277,4 +277,5 @@ body{
     font-size:0.85rem;
   }
 }
+
 
