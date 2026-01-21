@@ -128,14 +128,14 @@ body{
 }
 
 .bottom-symbol{
-  max-width:95px;
+  max-width:250px;
   width:100%;
   height:auto;
 }
 
 /* ================= POEM ================= */
 .poem{
-  padding:60px 20px;
+  padding:40px 20px;
   text-align:center;
   font-size:1.1rem;
   line-height:2;
@@ -277,3 +277,4 @@ body{
     font-size:0.85rem;
   }
 }
+
