@@ -71,8 +71,8 @@ body{
   flex-direction:column;
   align-items:center;
   justify-content:flex-start;
-  padding-top:70px;
-  padding-bottom:50px;
+  padding-top:80px;
+  padding-bottom:30px;
 }
 
 /* ================= LOVE BIRDS ================= */
@@ -248,7 +248,7 @@ body{
 
   .hero{
     padding-top:75px;
-    padding-bottom:40px;
+    padding-bottom:10px;
   }
 
   .hero h1{
@@ -260,7 +260,7 @@ body{
   }
   
  .poem{
-    padding-top:75px;
+    padding-top:35px;
     padding-bottom:20px;
    
   .date{
@@ -274,7 +274,7 @@ body{
   .bottom-symbol{
      width:180px;
     max-width:250px;
-    padding-top:75px;
+    padding-top:25px;
     padding-bottom:-20px;
   }
 
@@ -284,6 +284,7 @@ body{
     font-size:0.85rem;
   }
 }
+
 
 
 
